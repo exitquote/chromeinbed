@@ -1,0 +1,15 @@
+h1 {
+	font-family:  "Helvetica Neue", Helvetica, Calibri, Geneva, "DejaVu Sans", sans-serif;
+	font-size: 12pt;
+}
+
+p {
+	font-family: "Helvetica Neue", Helvetica, Calibri, Geneva, "DejaVu Sans", sans-serif;
+	font-size: 10pt;
+}
+
+#content {
+	width:200px;
+}
+
+
