@@ -34,9 +34,6 @@ var putInBed = function(nodes) {
 			var replaceVal = 1;
 			var span = nodes[i];
 			var text = span.textContent;
-			if (text.substring((text.length-11), (text.length)).indexOf(" in bed") >= 0) {
-				continue;
-			}
 			var last = text.substring((text.length-1), (text.length));
 			if (last in chars) {
 				if (last === " ") {
@@ -55,7 +52,7 @@ var putInBed = function(nodes) {
 		}
 	}
 	//TODO: handle posts that end with a url
-	//TODO: handle 
+	//TODO: handle some other punctuation combos, emoticons, etc.
 }
 
 initialChange();
