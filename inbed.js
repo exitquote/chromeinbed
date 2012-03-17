@@ -3,11 +3,13 @@ var chars = {
 	".":"",
 	"?":"",
 	";":"",
+	"\"":"",
+	"'":"",
 	" ":""
 }
 
 var changeListener = function() {
-	document.body.addEventListener('DOMNodeInserted', function(event) {
+	document.addEventListener('DOMNodeInserted', function(event) {
         findNewBeds(event.target);
     });
 }
@@ -52,12 +54,8 @@ var putInBed = function(nodes) {
 			}
 		}
 	}
-	//TODO hijack facebook's ajax response on pulldown, but ignore things that already end in "in bed".
-	// package it up into a chrome extension!
+	//TODO: handle posts that end with a url
+	//TODO: handle 
 }
 
-chrome.extension.sendRequest({checkPaused: "hello"}, function(response) {
-    if (response.maybePaused!="yes") {
-    	initialChange();
-	}
-});
+initialChange();
