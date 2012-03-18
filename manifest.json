@@ -1,7 +1,7 @@
 {
   "name": "Facebook in Bed",
   "version": "1.0",
-  "description": "Adds 'in bed' to the end of all your friends' status updates.",
+  "description": "Adds 'in bed' to the end of all your friends' status updates in your Facebook news feed.",
   "background_page": "background.html",
   "browser_action" :
   {

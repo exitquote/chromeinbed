@@ -17,6 +17,25 @@ var initialChange = function() {
 	putInBed(nodes);
 }
 
+var parseText = function(last, replaceVal, text) {
+	if (last === " ") {
+		// deal with trailing whitespace
+		replaceVal = 2;
+		last = text.substring((text.length-2), (text.length));
+	}
+	if (last === "." && text.substring((text.length-3), (text.length)) === '...') {
+		replaceVal = 3;
+		last = "...";
+	}
+	if (last === ")" || last === "(") {
+		if (text.substring((text.length-2), (text.length-1)) === ":") {
+			// probably an emoticon
+			replaceVal = 2;
+			last = text.substring((text.length-2), (text.length-1));
+		}
+	}
+}
+
 var putInBed = function(nodes) {
 	
 	for (var i=0;i<nodes.length;i++) {
@@ -26,26 +45,18 @@ var putInBed = function(nodes) {
 			var text = span.textContent;
 			var last = text.substring((text.length-1), (text.length));
 			if (text.substring((text.length-8), (text.length)) === "See More") {
-				// leave it alone
-				continue;
+				text = span.firstChild.textContent;
+				last = text.substring((text.length-9), (text.length-8));
+				replaceVal = 9;
+				parseText(last, replaceVal, text);
+				console.log(last);
+				console.log(replaceVal);
+				console.log(span.firstChild.textContent);
+				span.firstChild.textContent = span.firstChild.textContent.substring(0, (text.length-replaceVal));
+				span.firstChild.textContent = span.firstChild.textContent+" in bed"+last;
 			}
-			if (last.match(/[\.,!;: \?\"\'()]/)) {
-				if (last === " ") {
-					// deal with trailing whitespace
-					replaceVal = 2;
-					last = text.substring((text.length-2), (text.length));
-				}
-				if (last === "." && text.substring((text.length-3), (text.length)) === '...') {
-					replaceVal = 3;
-					last = "...";
-				}
-				if (last === ")" || last === "(") {
-					if (text.substring((text.length-2), (text.length-1)) === ":") {
-						// probably an emoticon
-						replaceVal = 2;
-						last = text.substring((text.length-2), (text.length-1));
-					}
-				}
+			else if (last.match(/[\.,!;: \?\"\'()]/)) {
+				parseText(last, replaceVal, text);
 				span.textContent = span.textContent.substring(0, (text.length-replaceVal));
 				span.textContent = span.textContent+" in bed"+last;
 			}
