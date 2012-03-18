@@ -49,9 +49,6 @@ var putInBed = function(nodes) {
 				last = text.substring((text.length-9), (text.length-8));
 				replaceVal = 9;
 				parseText(last, replaceVal, text);
-				console.log(last);
-				console.log(replaceVal);
-				console.log(span.firstChild.textContent);
 				span.firstChild.textContent = span.firstChild.textContent.substring(0, (text.length-replaceVal));
 				span.firstChild.textContent = span.firstChild.textContent+" in bed"+last;
 			}
