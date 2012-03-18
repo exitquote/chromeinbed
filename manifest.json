@@ -2,7 +2,6 @@
   "name": "Facebook in Bed",
   "version": "1.0",
   "description": "Adds 'in bed' to the end of all your friends' status updates in your Facebook news feed.",
-  "background_page": "background.html",
   "browser_action" :
   {
     "default_icon" : "bed_19.png",
@@ -15,8 +14,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.facebook.com/*"],
-      "js": ["inbed.js"],
-      "run_at" : "document_end"
+      "js": ["inbed.js"]
     }
   ],
   "content_security_policy": "default-src 'self'"
