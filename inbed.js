@@ -1,5 +1,5 @@
 var changeListener = function() {
-	document.addEventListener('DOMNodeInserted', function(event) {
+	document.body.addEventListener('DOMNodeInserted', function(event) {
         findNewBeds(event.target);
     });
 }
