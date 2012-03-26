@@ -9,7 +9,7 @@
     "default_popup" : "inbed.html"
   },
   "permissions": [
-  	"https://www.facebook.com/*"
+  	"https://www.facebook.com/*",
   	"http://www.facebook.com/*"
   ],
   "content_scripts": [
