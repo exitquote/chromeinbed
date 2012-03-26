@@ -14,7 +14,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://www.facebook.com/*"],
+      "matches": ["https://www.facebook.com/*", "http://www.facebook.com/*"],
       "js": ["inbed.js"]
     }
   ],
